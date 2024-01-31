@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LoginPage.Views.LoginPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="LoginPageView">
+    <VerticalStackLayout HorizontalOptions="Center">
+
+        <Grid RowDefinitions="1*,1*,1*,1*" RowSpacing="30">
+            <Entry Grid.Row="0" Placeholder="הכנס שם משתמש" />
+
+            <Entry Grid.Row="1" Placeholder="הכנס סיסמה" />
+
+            <Grid
+                Grid.Row="2"
+                ColumnDefinitions="1*, 1*"
+                RowDefinitions="1*"
+                RowSpacing="20">
+                <Button Grid.Column="0" Text="Login" />
+
+                <Button Grid.Column="1" Text="Cancel" />
+
+            </Grid>
+
+            <Label
+                Grid.Row="3"
+                HorizontalOptions="Center"
+                Text="Message" />
+
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>

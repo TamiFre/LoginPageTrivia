@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using LoginPage.Models;
+using LoginPage.Service;
 
 namespace LoginPage.ViewModels
 {
@@ -11,7 +14,53 @@ namespace LoginPage.ViewModels
     {
         private string name;
         private string password;
+        private Color color;
+        private string labletext;
         public string Name { get { return name; } set { name = value; OnPropertyChanged(); } }
+        public string LabelText { get { return labletext; } set { labletext = value; OnPropertyChanged(); } }
         public string Password { get { return password; } set { password = value; OnPropertyChanged(); } }
+        public Color Color { get { return color; } set { color = value; OnPropertyChanged(); } }
+        public ICommand LoginCommand { get; set; }
+        private Users user;
+
+        public ICommand CancelCommand { get; set; }
+
+        public LoginPageViewModel()
+        {
+            LoginCommand = new Command(SearchUserByCommand);
+            CancelCommand = new Command(CancelAll);
+        }
+
+        public void SearchUserByCommand()
+        {
+            Color = Colors.Red;
+            UserService service = new UserService();
+            bool isSuc = service.LoginSuc(user);
+            //אם הצלחתי להץתחבר
+            if (isSuc)
+            {
+                Color = Colors.Green;
+                LabelText = "Login Succeeded!";
+            }
+            else 
+            {
+                Color = Colors.Red;
+                LabelText = "Login Failed!";
+                
+            }
+            Reset();
+          
+        }
+        public void CancelAll()
+        {
+            Reset();
+        }
+        private void Reset()
+        {
+            Password = null;
+            Name = null;
+            user = null;
+        }
+      
     }
 }

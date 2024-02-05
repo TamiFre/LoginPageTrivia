@@ -28,6 +28,10 @@ namespace LoginPage.Service
             listUsers.Add( new Users() { Name = "Shahar", Password="FluffyHatumtum"});
         }
 
+        public bool LoginSuc(Users s)
+        {
+            return listUsers.Where(x => s.Name == x.Name && s.Password == x.Password)!=null;
+        }
 
     }
 }

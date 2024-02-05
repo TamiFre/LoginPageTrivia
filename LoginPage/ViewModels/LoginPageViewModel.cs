@@ -16,12 +16,11 @@ namespace LoginPage.ViewModels
         private string password;
         private Color color;
         private string labletext;
-        public string Name { get { return name; } set { name = value; OnPropertyChanged(); } }
+        public string Name { get { return name; } set { name = value; OnPropertyChanged(); ((Command)LoginCommand).ChangeCanExecute(); } }
         public string LabelText { get { return labletext; } set { labletext = value; OnPropertyChanged(); } }
-        public string Password { get { return password; } set { password = value; OnPropertyChanged(); } }
+        public string Password { get { return password; } set { password = value; OnPropertyChanged();((Command)LoginCommand).ChangeCanExecute(); } }
         public Color Color { get { return color; } set { color = value; OnPropertyChanged(); } }
         public ICommand LoginCommand { get; set; }
-        private Users user;
 
         public ICommand CancelCommand { get; set; }
 
@@ -33,11 +32,13 @@ namespace LoginPage.ViewModels
 
         public void SearchUserByCommand()
         {
+
             Color = Colors.Red;
             UserService service = new UserService();
-            bool isSuc = service.LoginSuc(user);
+            bool isSuc = service.LoginSuc(new Users() { Name = this.Name, Password = this.Password });
+            
             //אם הצלחתי להץתחבר
-            if (isSuc)
+            if (isSuc&& isSuc!=null)
             {
                 Color = Colors.Green;
                 LabelText = "Login Succeeded!";
@@ -46,7 +47,6 @@ namespace LoginPage.ViewModels
             {
                 Color = Colors.Red;
                 LabelText = "Login Failed!";
-                
             }
             Reset();
           
@@ -59,7 +59,6 @@ namespace LoginPage.ViewModels
         {
             Password = null;
             Name = null;
-            user = null;
         }
       
     }

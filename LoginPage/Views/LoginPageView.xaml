@@ -9,9 +9,9 @@
     <VerticalStackLayout HorizontalOptions="Center">
 
         <Grid RowDefinitions="1*,1*,1*,1*" RowSpacing="30">
-            <Entry Grid.Row="0" Placeholder="הכנס שם משתמש" />
+            <Entry Grid.Row="0" Placeholder="הכנס שם משתמש" Text="{Binding Name}" />
 
-            <Entry Grid.Row="1" Placeholder="הכנס סיסמה" />
+            <Entry Grid.Row="1" Placeholder="הכנס סיסמה" Text="{Binding Password}" />
 
             <Grid
                 Grid.Row="2"

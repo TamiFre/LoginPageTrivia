@@ -30,7 +30,7 @@ namespace LoginPage.Service
 
         public bool LoginSuc(Users s)
         {
-            return listUsers.Where(x => s.Name == x.Name && s.Password == x.Password)!=null;
+            return s!=null&&listUsers.FirstOrDefault(x => s.Name == x.Name && s.Password == x.Password)!=null;
         }
 
     }

@@ -8,30 +8,31 @@ using System.Threading.Tasks;
 
 namespace LoginPage.Service
 {
-
+    
     public class UserService
     {
-        //רשימה של יוזרס חדשים
-        public List<Users> listUsers { get; set; }
-
+     
+        public List<Player> playersList { get; set; }
         public UserService()
         {
-            this.listUsers = new List<Users>();
+            this.playersList = new List<Player>();
             FillList();
         }
-
-        //מכניס רשומים לרשימה
         private void FillList()
         {
-            listUsers.Add(new Users() { Name = "Gal", Password = "GalHatumtum" });
-            listUsers.Add( new Users() { Name = "Tami", Password="ShaharHatumtum"});
-            listUsers.Add( new Users() { Name = "Shahar", Password="FluffyHatumtum"});
+            playersList.Add(new Player() { PlayerName = "Gal", PlayerPass = "Gal123" });
+            playersList.Add(new Player() { PlayerName = "Tami", PlayerPass = "Tami123" });
+            playersList.Add(new Player() { PlayerName = "ShaharOz", PlayerPass = "ShaharOz123" });
+            playersList.Add(new Player() { PlayerName = "ShaharS", PlayerPass = "ShaharS123" });
         }
 
-        public bool LoginSuc(Users s)
+        public bool LoginSuc(Player ps)
         {
-            return s!=null&&listUsers.FirstOrDefault(x => s.Name == x.Name && s.Password == x.Password)!=null;
+            return ps != null && playersList.FirstOrDefault(x => ps.PlayerName == x.PlayerName && ps.PlayerPass == x.PlayerPass) != null;
         }
+
+        
+        
 
     }
 }

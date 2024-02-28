@@ -35,7 +35,7 @@ namespace LoginPage.ViewModels
 
             Color = Colors.Red;
             UserService service = new UserService();
-            bool isSuc = service.LoginSuc(new Users() { Name = this.Name, Password = this.Password });
+            bool isSuc = service.LoginSuc(new Player() { PlayerName = this.Name, PlayerPass = this.Password });
             
             //אם הצלחתי להץתחבר
             if (isSuc&& isSuc!=null)

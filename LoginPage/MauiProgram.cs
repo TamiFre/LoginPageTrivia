@@ -20,7 +20,8 @@ namespace LoginPage
 
             //אד סינגלטון ודברים כאלו
             builder.Services.AddTransient<UserQuestionsPageView>();
-
+            builder.Services.AddTransient<LoginPageView>();
+            builder.Services.AddTransient<LoginPageViewModel>();
             builder.Services.AddTransient<UserQuestionsPageViewModel>();
 
             builder.Services.AddSingleton<QService>();

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Javax.Security.Auth;
+//using Javax.Security.Auth;
 using LoginPage.Models;
-using static Android.Icu.Text.CaseMap;
+//using static Android.Icu.Text.CaseMap;
 
 namespace LoginPage.Service
 {
@@ -28,9 +28,9 @@ namespace LoginPage.Service
             Qs.Add(new Q { QTitle = "What year did Hitler come to power?", AnsCorrect = "1933", A1 = "1939",A2 =  "1942",A3 = "2022", PlayerId =1, SubjectId = 5,StatusId = 1 });
         }
 
-        public List<Q> GetUserQuestion(int id)
+        public List<Q> GetUserQuestion(Player p)
         {
-            return Qs.Where(x=> x.PlayerId == id).ToList();
+            return Qs.Where(x=> x.Player == p).ToList();
         }
     }
 }

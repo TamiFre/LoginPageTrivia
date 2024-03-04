@@ -16,6 +16,9 @@ namespace LoginPage.ViewModels
         private string password;
         private Color color;
         private string labletext;
+
+        //public Player IsSuc { get; set; }
+
         public string Name { get { return name; } set { name = value; OnPropertyChanged(); ((Command)LoginCommand).ChangeCanExecute(); } }
         public string LabelText { get { return labletext; } set { labletext = value; OnPropertyChanged(); } }
         public string Password { get { return password; } set { password = value; OnPropertyChanged();((Command)LoginCommand).ChangeCanExecute(); } }
@@ -30,7 +33,7 @@ namespace LoginPage.ViewModels
             CancelCommand = new Command(CancelAll);
         }
 
-        public void SearchUserByCommand()
+        public async void SearchUserByCommand()
         {
 
             Color = Colors.Red;
@@ -42,6 +45,11 @@ namespace LoginPage.ViewModels
             {
                 Color = Colors.Green;
                 LabelText = "Login Succeeded!";
+
+                
+                Dictionary <string, object> data = new Dictionary<string, object>();
+                data.Add("Player", isSuc);
+                await AppShell.Current.GoToAsync("UserQuestionPage", data);
 
             }
             else 

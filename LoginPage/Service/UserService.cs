@@ -26,9 +26,14 @@ namespace LoginPage.Service
             playersList.Add(new Player() { PlayerName = "ShaharS", PlayerPass = "ShaharS123" });
         }
 
-        public bool LoginSuc(Player ps)
+        public Player LoginSuc(Player ps)
         {
-            return ps != null && playersList.FirstOrDefault(x => ps.PlayerName == x.PlayerName && ps.PlayerPass == x.PlayerPass) != null;
+            Player player = playersList.FirstOrDefault(x => ps.PlayerName == x.PlayerName && ps.PlayerPass == x.PlayerPass);
+            if (player != null )
+                return player;
+            else 
+                return null;
+                
         }
 
         

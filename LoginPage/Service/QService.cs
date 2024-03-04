@@ -32,5 +32,21 @@ namespace LoginPage.Service
         {
             return Qs.Where(x=> x.Player == p).ToList();
         }
+
+        //מחזיר לי את השאלות המאושרות או מחכות או לא מאושרות לפי שחקן
+        //public List<Q> GetApprovedQuestions(Player p)
+        //{
+        //    return GetUserQuestion(p).Where(x => x.StatusId == 1).ToList();
+        //}
+
+        //public List<Q> GetDeclinedQuestions(Player p)
+        //{
+        //    return GetUserQuestion(p).Where(x => x.StatusId == 2).ToList();
+        //}
+
+        //public List<Q> GetPendingQuestions(Player p)
+        //{
+        //    return GetUserQuestion(p).Where(x => x.StatusId == 3).ToList();
+        //}
     }
 }

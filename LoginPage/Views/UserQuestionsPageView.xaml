@@ -29,12 +29,51 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            
+            <!--קולקשין ויו לפי סטטוס-->
             <!--<Button Text="Show Approved" Command="{Binding ShowApproved}"/>
+            <CollectionView ItemsSource="{Binding Player}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Q">
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="*">
+                            <Label Text="{Binding QTitle}"/>
+                            <Label Text="{Binding Subject}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
 
             <Button Text="Show Pending" Command="{Binding ShowPending}"/>
 
-            <Button Text="Show Declined" Command="{Binding ShowDeclined}"/>-->
+            <CollectionView ItemsSource="{Binding Player}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Q">
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="*">
+                            <Label Text="{Binding QTitle}"/>
+                            <Label Text="{Binding Subject}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+            
+            
+            <Button Text="Show Declined" Command="{Binding ShowDeclined}"/>
 
+            <CollectionView ItemsSource="{Binding Player}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Q">
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="*">
+                            <Label Text="{Binding QTitle}"/>
+                            <Label Text="{Binding Subject}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+
+            
+            
         </StackLayout>
     </ScrollView>
 </ContentPage>

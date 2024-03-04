@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LoginPage.Views.ApproveQuestionsPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:LoginPage.Models"
+    xmlns:vm="clr-namespace:LoginPage.ViewModels"
+    Title="ApproveQuestionsPageView"
+    x:DataType="vm:ApproveQuestionsPageViewModel">
+    <ScrollView Margin="10">
+        <VerticalStackLayout>
+            <RefreshView>
+                <CollectionView x:Name="colview" ItemsSource="{Binding PenQuestions}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <StackLayout
+                            Margin="10"
+                            BackgroundColor="LightBlue"
+                            HeightRequest="200"
+                            VerticalOptions="Start" />
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Q">
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem
+                                            Command="{Binding Source={x:Reference colview}, Path=BindingContext.ApproveCommand}"
+                                            CommandParameter="{Binding .}"
+                                            IconImageSource="Approved.png"
+                                            Text="approve" />
+                                        <SwipeItem
+                                            Command="{Binding Source={x:Reference colview2}, Path=BindingContext.DeclineCommand}"
+                                            CommandParameter="{Binding .}"
+                                            IconImageSource="Declined.png"
+                                            Text="decline" />
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                            </SwipeView>
+                            <!--  גריד וכו  -->
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

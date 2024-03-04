@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Javax.Security.Auth;
 using LoginPage.Models;
-using static Android.Icu.Text.CaseMap;
 
 namespace LoginPage.Service
 {
@@ -31,6 +30,10 @@ namespace LoginPage.Service
         public List<Q> GetUserQuestion(int id)
         {
             return Qs.Where(x=> x.PlayerId == id).ToList();
+        }
+        public List<Q> GetQsWherePending(ObservableCollection<Q> qs)
+        {
+            return qs.Where(x=> x.StatusId==3).ToList();
         }
     }
 }

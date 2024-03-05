@@ -49,8 +49,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\Approved.jpg" />
-	  <None Remove="Resources\Images\Declined.jpg" />
+	  <None Remove="Resources\Images\approved.png" />
+	  <None Remove="Resources\Images\declined.png" />
 	</ItemGroup>
 
 	<ItemGroup>

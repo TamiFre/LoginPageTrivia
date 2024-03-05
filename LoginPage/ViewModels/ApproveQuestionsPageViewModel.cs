@@ -21,35 +21,34 @@ namespace LoginPage.ViewModels
         public ICommand LoadQuestionsCommand { get; private set; }
         public ICommand ApproveCommand { get; private set; }
         public ICommand DeclineCommand { get; private set; }
+        public ICommand RefreshCommand { get; private set; }
 
         public ApproveQuestionsPageViewModel(QService qService)
         {
-           service = qService;
-           var list=qService.GetQsWherePending(Questions);
-            for(int i = 0;i<list.Count; i++)
+           this.service = qService;
+           var list=service.GetQsWherePending();
+            PenQuestions = new();
+            for (int i = 0;i<list.Count; i++)
             {
                 PenQuestions.Add(list[i]);
             }
-            ApproveCommand = new Command(() => ChangeStatusToApprove());
-            DeclineCommand = new Command(() => ChangeStatusToDecline());
+            ApproveCommand = new Command<Q>((q) => ChangeStatusToApprove(q));
+            DeclineCommand = new Command<Q>((q) => ChangeStatusToDecline(q));
+            OnPropertyChanged("PenQuestions");
         }
-        public void ChangeStatusToApprove()
+        public void ChangeStatusToApprove(Q q)
         {
-            SelectedQuestion.StatusId = 1;
-            foreach(Q q in PenQuestions)
-            {
-                if (q.StatusId == 1)
-                    PenQuestions.Remove(q);
-            }
+           q.StatusId = 1;
+           
+           PenQuestions.Remove(q);
+           
         }
-        public void ChangeStatusToDecline()
+        public void ChangeStatusToDecline(Q q)
         {
-            SelectedQuestion.StatusId = 2;
-            foreach (Q q in PenQuestions)
-            {
-                if (q.StatusId == 2)
+            q.StatusId = 2;
+            
                     PenQuestions.Remove(q);
-            }
+           
         }
 
     }

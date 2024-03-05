@@ -8,8 +8,9 @@
     Title="ApproveQuestionsPageView"
     x:DataType="vm:ApproveQuestionsPageViewModel">
     <ScrollView Margin="10">
-        <VerticalStackLayout>
-            <RefreshView>
+        <VerticalStackLayout WidthRequest="400">
+
+            <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
                 <CollectionView x:Name="colview" ItemsSource="{Binding PenQuestions}">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
@@ -29,22 +30,26 @@
                                         <SwipeItem
                                             Command="{Binding Source={x:Reference colview}, Path=BindingContext.ApproveCommand}"
                                             CommandParameter="{Binding .}"
-                                            IconImageSource="Approved.png"
+                                            IconImageSource="approved.png"
                                             Text="approve" />
                                         <SwipeItem
-                                            Command="{Binding Source={x:Reference colview2}, Path=BindingContext.DeclineCommand}"
+                                            Command="{Binding Source={x:Reference colview}, Path=BindingContext.DeclineCommand}"
                                             CommandParameter="{Binding .}"
-                                            IconImageSource="Declined.png"
+                                            IconImageSource="declined.png"
                                             Text="decline" />
                                     </SwipeItems>
                                 </SwipeView.LeftItems>
+
+                                <StackLayout Spacing="25">
+                                    <Label Text="{Binding QTitle}" />
+                                    <Label Text="{Binding SubjectName}" />
+                                </StackLayout>
+
                             </SwipeView>
-                            <!--  גריד וכו  -->
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </RefreshView>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

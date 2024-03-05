@@ -16,7 +16,9 @@
             <CollectionView
                 x:Name="colView"
                 EmptyView="אין לך בכלל שאלות אידיוט"
-                ItemsSource="{Binding Questions}">
+                ItemsSource="{Binding Questions}"
+                SelectionMode="Single"
+                SelectedItem="{Binding SelectedQuestion}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Q">
 

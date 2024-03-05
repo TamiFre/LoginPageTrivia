@@ -32,6 +32,9 @@ namespace LoginPage.ViewModels
         public int SelectedIndex{ get { return selectedIndex; } set { selectedIndex = value; OnPropertyChanged(); } }
         public ObservableCollection<StatusQ> Status { get; set; } 
         public object SelectedSubject { get; set; }
+
+        private Q selectedQuestion;
+        public Q SelectedQuestion { get { return selectedQuestion; } set { selectedQuestion = value; OnPropertyChanged(); } }
        
 
         public UserQuestionsPageViewModel(QService qService, StatusQService statusService)

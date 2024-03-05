@@ -30,7 +30,7 @@ namespace LoginPage.Service
 
         public List<Q> GetUserQuestion(Player p)
         {
-            return Qs.Where(x=> x.Player == p).ToList();
+            return Qs.Where(x=> x.PlayerId == p.PlayerId).ToList();
         }
 
         //מחזיר לי את השאלות המאושרות או מחכות או לא מאושרות לפי שחקן

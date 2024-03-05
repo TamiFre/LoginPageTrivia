@@ -5,75 +5,48 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:LoginPage.Models"
     xmlns:vm="clr-namespace:LoginPage.ViewModels"
+    x:Name="this"
     Title="UserQuestionsPageView"
     x:DataType="vm:UserQuestionsPageViewModel">
 
     <!--  להציג את אוסף השאלות של המשתמש והסטטוס שלהן. יציג אתת נושא השאלה הקטוגריה והסטטוס  -->
     <ScrollView>
         <StackLayout>
-            <Button Text="Show Questions" Command="{Binding ShowAllQuestions}"/>
+            <Button Command="{Binding ShowAllQuestions}" Text="Show Questions" />
             <CollectionView
-            x:Name="colView"
-            EmptyView="אין לך בכלל שאלות אידיוט"
-            ItemsSource="{Binding Player}">
+                x:Name="colView"
+                EmptyView="אין לך בכלל שאלות אידיוט"
+                ItemsSource="{Binding Questions}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Q">
 
                         <Grid ColumnDefinitions="*,*,*" RowDefinitions="*">
-                            <Label Text="{Binding QTitle}" />
-                            <Label Text="{Binding Status}" />
-                            <Label Text="{Binding Subject}" />
+                            <Label Grid.Column="0" Text="{Binding QTitle}" />
+                            <Label Grid.Column="1" Text="{Binding Status.StatusName}" />
+                            <Label Grid.Column="2" Text="{Binding Subject.SubjectName}" />
                         </Grid>
 
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            
-            <!--קולקשין ויו לפי סטטוס-->
-            <!--<Button Text="Show Approved" Command="{Binding ShowApproved}"/>
-            <CollectionView ItemsSource="{Binding Player}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Q">
-                        <Grid ColumnDefinitions="*,*" RowDefinitions="*">
-                            <Label Text="{Binding QTitle}"/>
-                            <Label Text="{Binding Subject}"/>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+
+            <Picker
+                x:Name="Picker"
+                Title="Select filter"
+                x:DataType="models:StatusQ"
+                ItemDisplayBinding="{Binding StatusName}"
+                ItemsSource="{Binding BindingContext.Status, Source={x:Reference this}}"
+                SelectedIndex="{Binding BindingContext.SelectedIndex, Source={x:Reference this}}"
+                SelectedItem="{Binding BindingContext.SelectedSubject, Source={x:Reference this}}" />
 
 
-            <Button Text="Show Pending" Command="{Binding ShowPending}"/>
 
-            <CollectionView ItemsSource="{Binding Player}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Q">
-                        <Grid ColumnDefinitions="*,*" RowDefinitions="*">
-                            <Label Text="{Binding QTitle}"/>
-                            <Label Text="{Binding Subject}"/>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            
-            
-            
-            <Button Text="Show Declined" Command="{Binding ShowDeclined}"/>
 
-            <CollectionView ItemsSource="{Binding Player}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Q">
-                        <Grid ColumnDefinitions="*,*" RowDefinitions="*">
-                            <Label Text="{Binding QTitle}"/>
-                            <Label Text="{Binding Subject}"/>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>-->
 
-            
-            
+
+
+
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -26,6 +26,9 @@ namespace LoginPage
 
             builder.Services.AddSingleton<QService>();
             builder.Services.AddSingleton<UserService>();
+            builder.Services.AddSingleton<SubjectQService>();
+            builder.Services.AddSingleton<StatusQService>();
+           
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

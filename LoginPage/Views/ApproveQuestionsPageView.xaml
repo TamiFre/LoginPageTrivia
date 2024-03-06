@@ -10,10 +10,9 @@
     <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
         <ScrollView x:Name="scrlview" Margin="10">
             <VerticalStackLayout WidthRequest="400">
-                <Button Command="{Binding ClearFilterCommand}" Text="נקה סינון" />
-                <Button Command="{Binding FilterCommand}" Text="סינון" />
+
                 <Picker
-                    
+                    Title="Filter"
                     x:DataType="models:SubjectQ"
                     ItemDisplayBinding="{Binding SubjectName}"
                     ItemsSource="{Binding BindingContext.Subjects, Source={x:Reference scrlview}}"
@@ -56,6 +55,17 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
+
+                <Button
+                    Margin="20"
+                    BackgroundColor="#467a54"
+                    Command="{Binding FilterCommand}"
+                    Text="Filter" />
+                <Button
+                    Margin="20"
+                    BackgroundColor="#467a54"
+                    Command="{Binding ClearFilterCommand}"
+                    Text="Clear filter " />
             </VerticalStackLayout>
         </ScrollView>
     </RefreshView>

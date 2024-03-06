@@ -33,10 +33,15 @@
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<!--<MauiSplashScreen Include="Resources\Raw\splash.svg">
+		  <Color>#512BD4</Color>
+		  <BaseSize>128,128</BaseSize>
+		</MauiSplashScreen>-->
+		<MauiSplashScreen Include="Resources\Splash\thebesttrivia.png" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
-
+    <MauiSplashScreen Include="Resources\Splash\thebesttrivia.png"/>
+    
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
@@ -49,8 +54,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiAsset Remove="Resources\Raw\splash.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\approved.png" />
 	  <None Remove="Resources\Images\declined.png" />
+	  <None Remove="Resources\Raw\splash.svg" />
+	  <None Remove="Resources\Splash\thebesttrivia.png" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -65,8 +65,8 @@ namespace LoginPage.ViewModels
             SelectedSubject = null;
             fullList = service.Qs;
             Questions.Clear();
-            foreach (var student in fullList)
-                Questions.Add(student);
+            foreach (var quest in fullList)
+                Questions.Add(quest);
             IsRefreshing = true;
             PenQuestions.Clear();
             foreach (Q question in service.Qs.Where(x => x.StatusId == 3))

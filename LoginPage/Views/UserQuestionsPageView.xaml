@@ -11,7 +11,7 @@
 
     <!--  להציג את אוסף השאלות של המשתמש והסטטוס שלהן. יציג אתת נושא השאלה הקטוגריה והסטטוס  -->
     <ScrollView>
-        <StackLayout>
+        <StackLayout HorizontalOptions="CenterAndExpand">
             <Button Command="{Binding ShowAllQuestions}" Text="Show Questions" />
             <CollectionView
                 x:Name="colView"
@@ -36,11 +36,11 @@
             <Picker
                 x:Name="Picker"
                 Title="Select filter"
-                x:DataType="models:StatusQ"
+              
                 ItemDisplayBinding="{Binding StatusName}"
-                ItemsSource="{Binding BindingContext.Status, Source={x:Reference this}}"
-                SelectedIndex="{Binding BindingContext.SelectedIndex, Source={x:Reference this}}"
-                SelectedItem="{Binding BindingContext.SelectedSubject, Source={x:Reference this}}" />
+                ItemsSource="{Binding Status}"
+                SelectedIndex="{Binding SelectedIndex}"
+                SelectedItem="{Binding SelectedStatus}" />
 
 
 

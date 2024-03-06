@@ -14,7 +14,7 @@ namespace LoginPage.Service
 
         public StatusQService()
         {
-            StatusQ[] StatusQs = new StatusQ[3];
+            StatusQs = new StatusQ[3];
             StatusQs[0] = new StatusQ() { StatusId = 1, StatusName = "Approved" };
             StatusQs[1] = new StatusQ() { StatusId = 2, StatusName = "Declined" };
             StatusQs[2] = new StatusQ() { StatusId = 3, StatusName = "Pending" };

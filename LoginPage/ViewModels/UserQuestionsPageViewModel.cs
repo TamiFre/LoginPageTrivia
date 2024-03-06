@@ -29,9 +29,10 @@ namespace LoginPage.ViewModels
         private List<Q> filteredList;
         private StatusQService statusQService;
         private int selectedIndex;
-        public int SelectedIndex{ get { return selectedIndex; } set { selectedIndex = value; OnPropertyChanged(); } }
+        private StatusQ selectedStatus;
+        public int SelectedIndex{ get { return selectedIndex; } set { if (selectedIndex != value) { selectedIndex = value;  OnPropertyChanged(); } } }
         public ObservableCollection<StatusQ> Status { get; set; } 
-        public object SelectedSubject { get; set; }
+        public StatusQ SelectedStatus { get=>selectedStatus; set { if (selectedStatus != value) { selectedStatus = value; OnPropertyChanged();  ShowFilteredQuestions();}  } }
 
         private Q selectedQuestion;
         public Q SelectedQuestion { get { return selectedQuestion; } set { selectedQuestion = value; OnPropertyChanged(); } }
@@ -49,30 +50,35 @@ namespace LoginPage.ViewModels
             }
             Questions = new ObservableCollection<Q>();
             ShowAllQuestions = new Command(async () => await ShowQuestions());
-            FilterCommand = new Command(async () => await ShowFilteredQuestions());
+            FilterCommand = new Command(ShowFilteredQuestions);
+            selectedIndex = -1;
           
         }
 
         public async Task ShowQuestions()
         {
            
-            var list = qService.GetUserQuestion(Player);
+            fullList = qService.GetUserQuestion(Player);
             Questions.Clear();
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < fullList.Count; i++)
             {
-                Questions.Add(list[i]);
-            } 
+                Questions.Add(fullList[i]);
+            }
+            SelectedIndex = -1;
         }
 
-        public async Task ShowFilteredQuestions()
+        public void ShowFilteredQuestions()
         {
-            filteredList = fullList.Where(x=> x.Subject.Equals((string)SelectedSubject)).ToList();
+            if(SelectedIndex!=-1)
+            filteredList = fullList.Where(x=> x.StatusId==SelectedStatus.StatusId).ToList();
+            else
+                filteredList = fullList;
             Questions.Clear();
             foreach (Q question in filteredList)
             {
                 Questions.Add(question);
             }
-            SelectedIndex = -1;
+          
         }
         
 

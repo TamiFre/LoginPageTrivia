@@ -11,8 +11,8 @@
         ContentTemplate="{DataTemplate local:LoginPageView}"
         Route="LoginPage" />
     <ShellContent
-    Title="Home"
-    ContentTemplate="{DataTemplate local:ApproveQuestionsPageView}"
-    Route="ApproveQuestionsPage" />
+        Title="Approve Questions"
+        ContentTemplate="{DataTemplate local:ApproveQuestionsPageView}"
+        Route="ApproveQuestionsPage" />
 
 </Shell>

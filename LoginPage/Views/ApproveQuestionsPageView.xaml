@@ -7,10 +7,17 @@
     xmlns:vm="clr-namespace:LoginPage.ViewModels"
     Title="ApproveQuestionsPageView"
     x:DataType="vm:ApproveQuestionsPageViewModel">
-    <ScrollView Margin="10">
-        <VerticalStackLayout WidthRequest="400">
-
-            <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+    <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+        <ScrollView x:Name="scrlview" Margin="10">
+            <VerticalStackLayout WidthRequest="400">
+                <Button Command="{Binding ClearFilterCommand}" Text="נקה סינון" />
+                <Button Command="{Binding FilterCommand}" Text="סינון" />
+                <Picker
+                    
+                    x:DataType="models:SubjectQ"
+                    ItemDisplayBinding="{Binding SubjectName}"
+                    ItemsSource="{Binding BindingContext.Subjects, Source={x:Reference scrlview}}"
+                    SelectedItem="{Binding BindingContext.SelectedSubject, Source={x:Reference scrlview}}" />
                 <CollectionView x:Name="colview" ItemsSource="{Binding PenQuestions}">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
@@ -19,7 +26,7 @@
                         <StackLayout
                             Margin="10"
                             BackgroundColor="LightBlue"
-                            HeightRequest="200"
+                            HeightRequest="100"
                             VerticalOptions="Start" />
                     </CollectionView.EmptyView>
                     <CollectionView.ItemTemplate>
@@ -40,16 +47,16 @@
                                     </SwipeItems>
                                 </SwipeView.LeftItems>
 
-                                <StackLayout Spacing="25">
-                                    <Label Text="{Binding QTitle}" />
+                                <StackLayout Margin="10">
                                     <Label Text="{Binding SubjectName}" />
-                                </StackLayout>
+                                    <Label Text="{Binding QTitle}" />
 
+                                </StackLayout>
                             </SwipeView>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-            </RefreshView>
-        </VerticalStackLayout>
-    </ScrollView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </RefreshView>
 </ContentPage>

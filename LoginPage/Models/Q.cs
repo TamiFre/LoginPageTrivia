@@ -19,6 +19,7 @@ namespace LoginPage.Models
         public int PlayerId { get; set; }
         public int SubjectId { get; set; }
         public int StatusId { get; set; }
+        public string SubjectName { get; set; }
         public virtual Player Player { get; set; }
         public virtual StatusQ Status { get; set; }
         public virtual SubjectQ Subject { get; set; }

@@ -12,36 +12,46 @@
     <!--  להציג את אוסף השאלות של המשתמש והסטטוס שלהן. יציג אתת נושא השאלה הקטוגריה והסטטוס  -->
     <ScrollView>
         <StackLayout HorizontalOptions="CenterAndExpand">
-            <Button Command="{Binding ShowAllQuestions}" Text="Show Questions" />
+            <Button HorizontalOptions="Center" Command="{Binding ShowAllQuestions}" Text="Show Questions"  BorderColor="DarkGray"
+                    TextColor="Black"
+                    BackgroundColor="Beige" />
             <CollectionView
+                
                 x:Name="colView"
                 EmptyView="אין לך בכלל שאלות אידיוט"
                 ItemsSource="{Binding Questions}"
                 SelectionMode="Single"
-                SelectedItem="{Binding SelectedQuestion}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Q">
+                SelectedItem="{Binding SelectedQuestion}"
+                HorizontalOptions="Center"
+                >
+                <CollectionView.ItemTemplate >
+                    <DataTemplate x:DataType="models:Q" >
 
-                        <Grid ColumnDefinitions="*,*,*" RowDefinitions="*">
-                            <Label Grid.Column="0" Text="{Binding QTitle}" />
-                            <Label Grid.Column="1" Text="{Binding Status.StatusName}" />
-                            <Label Grid.Column="2" Text="{Binding Subject.SubjectName}" />
-                        </Grid>
+                        <Border>
+                            <Grid ColumnDefinitions="*" RowDefinitions="*,*,*" Margin="10"  >
 
+                                <Label Grid.Row="0" Text="{Binding QTitle}" />
+
+                                <Label Grid.Row="1" Text="{Binding Status.StatusName}" TextColor="Coral" />
+
+                                <Label Grid.Row="2" Text="{Binding Subject.SubjectName}" TextColor="DarkOliveGreen" />
+                            </Grid>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-
-            <Picker
+            <Border BackgroundColor="BlanchedAlmond" >
+                <Picker
+                
                 x:Name="Picker"
                 Title="Select filter"
-              
+                HorizontalOptions="Center"
                 ItemDisplayBinding="{Binding StatusName}"
                 ItemsSource="{Binding Status}"
                 SelectedIndex="{Binding SelectedIndex}"
                 SelectedItem="{Binding SelectedStatus}" />
-
+            </Border>
 
 
 

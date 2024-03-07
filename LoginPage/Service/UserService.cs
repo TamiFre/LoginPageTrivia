@@ -20,10 +20,10 @@ namespace LoginPage.Service
         }
         private void FillList()
         {
-            playersList.Add(new Player() { PlayerName = "Gal", PlayerPass = "Gal123" });
-            playersList.Add(new Player() { PlayerName = "Tami", PlayerPass = "Tami123" });
-            playersList.Add(new Player() { PlayerName = "ShaharOz", PlayerPass = "ShaharOz123" });
-            playersList.Add(new Player() { PlayerName = "ShaharS", PlayerPass = "ShaharS123" });
+            playersList.Add(new Player() { PlayerId=1, PlayerName = "Gal", PlayerPass = "Gal123" });
+            playersList.Add(new Player() { PlayerId=2, PlayerName = "Tami", PlayerPass = "Tami123" });
+            playersList.Add(new Player() { PlayerId = 3, PlayerName = "ShaharOz", PlayerPass = "ShaharOz123" });
+            playersList.Add(new Player() { PlayerId = 4, PlayerName = "ShaharS", PlayerPass = "ShaharS123" });
         }
 
         public Player LoginSuc(Player ps)

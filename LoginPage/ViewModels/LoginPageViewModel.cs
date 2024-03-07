@@ -43,6 +43,10 @@ namespace LoginPage.ViewModels
                 Color = Colors.Green;
                 LabelText = "Login Succeeded!";
 
+                Dictionary<string,object> data = new Dictionary<string, object>();
+                data.Add("Player", isSuc);
+                AppShell.Current.GoToAsync("UserQuestionPage", data);
+
             }
             else 
             {

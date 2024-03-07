@@ -9,9 +9,17 @@
     <VerticalStackLayout HorizontalOptions="Center">
 
         <Grid RowDefinitions="1*,1*,1*,1*" RowSpacing="30">
-            <Entry Grid.Row="0" Placeholder="הכנס שם משתמש" Text="{Binding Name}" />
+            <Entry
+                Grid.Row="0"
+                FontFamily="SuperOceanPersonalUse"
+                Placeholder="Username"
+                Text="{Binding Name}" />
 
-            <Entry Grid.Row="1" Placeholder="הכנס סיסמה" Text="{Binding Password}" />
+            <Entry
+                Grid.Row="1"
+                FontFamily="SuperOceanPersonalUse"
+                Placeholder="Password"
+                Text="{Binding Password}" />
 
             <Grid
                 Grid.Row="2"
@@ -21,11 +29,13 @@
                 <Button
                     Grid.Column="0"
                     Command="{Binding LoginCommand}"
+                    FontFamily="SuperOceanPersonalUse"
                     Text="Login" />
 
                 <Button
                     Grid.Column="1"
                     Command="{Binding CancelCommand}"
+                    FontFamily="SuperOceanPersonalUse"
                     Text="Cancel" />
 
             </Grid>

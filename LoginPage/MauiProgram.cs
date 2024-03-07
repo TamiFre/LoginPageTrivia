@@ -16,6 +16,7 @@ namespace LoginPage
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("SuperOceanPersonalUse.ttf", "SuperOcean");
                 });
 
             //אד סינגלטון ודברים כאלו
@@ -24,11 +25,14 @@ namespace LoginPage
 
             builder.Services.AddTransient<UserQuestionsPageViewModel>();
             builder.Services.AddTransient<ApproveQuestionsPageViewModel>();
-            builder.Services.AddTransient<UserQuestionsPageViewModel>();
 
             builder.Services.AddSingleton<QService>();
             builder.Services.AddSingleton<UserService>();
             builder.Services.AddSingleton<SubjectQService>();
+            builder.Services.AddSingleton<StatusQService>();
+        
+
+
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

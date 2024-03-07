@@ -8,6 +8,8 @@ namespace LoginPage
         {
             InitializeComponent();
             Routing.RegisterRoute("ApproveQuestionsPage",typeof(ApproveQuestionsPageView));
+            Routing.RegisterRoute("UserQuestionPage", typeof(UserQuestionsPageView));
+            Routing.RegisterRoute("LoginPage", typeof(LoginPageView));
         }
     }
 }

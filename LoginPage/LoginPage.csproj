@@ -38,10 +38,10 @@
 		  <BaseSize>128,128</BaseSize>
 		</MauiSplashScreen>-->
 		<MauiSplashScreen Include="Resources\Splash\thebesttrivia.png" />
-
+     
 		<!-- Splash Screen -->
-    <MauiSplashScreen Include="Resources\Splash\thebesttrivia.png"/>
-    
+    <MauiSplashScreen Include="Resources\Splash\thebesttrivia.png" />
+
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
@@ -58,6 +58,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\SuperOceanPersonalUse.ttf" />
 	  <None Remove="Resources\Images\approved.png" />
 	  <None Remove="Resources\Images\declined.png" />
 	  <None Remove="Resources\Raw\splash.svg" />

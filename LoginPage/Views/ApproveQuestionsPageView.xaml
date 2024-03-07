@@ -14,6 +14,7 @@
                 <Picker
                     Title="Filter"
                     x:DataType="models:SubjectQ"
+                    FontFamily="SuperOceanPersonalUse"
                     ItemDisplayBinding="{Binding SubjectName}"
                     ItemsSource="{Binding BindingContext.Subjects, Source={x:Reference scrlview}}"
                     SelectedItem="{Binding BindingContext.SelectedSubject, Source={x:Reference scrlview}}" />
@@ -47,8 +48,8 @@
                                 </SwipeView.LeftItems>
 
                                 <StackLayout Margin="10">
-                                    <Label Text="{Binding SubjectName}" />
-                                    <Label Text="{Binding QTitle}" />
+                                    <Label FontFamily="SuperOceanPersonalUse" Text="{Binding SubjectName}" />
+                                    <Label FontFamily="SuperOceanPersonalUse" Text="{Binding QTitle}" />
 
                                 </StackLayout>
                             </SwipeView>
@@ -60,12 +61,15 @@
                     Margin="20"
                     BackgroundColor="#467a54"
                     Command="{Binding FilterCommand}"
+                    FontFamily="SuperOceanPersonalUse"
                     Text="Filter" />
                 <Button
                     Margin="20"
                     BackgroundColor="#467a54"
                     Command="{Binding ClearFilterCommand}"
+                    FontFamily="SuperOceanPersonalUse"
                     Text="Clear filter " />
+
             </VerticalStackLayout>
         </ScrollView>
     </RefreshView>

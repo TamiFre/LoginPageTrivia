@@ -17,6 +17,7 @@ namespace LoginPage
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("SuperOceanPersonalUse.ttf", "SuperOcean");
+                    fonts.AddFont("Cowboys.ttf", "Cowboys");
                 });
 
             //אד סינגלטון ודברים כאלו

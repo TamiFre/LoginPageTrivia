@@ -60,7 +60,6 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\SuperOceanPersonalUse.ttf" />
 	  <None Remove="Resources\Images\approved.png" />
-	  <None Remove="Resources\Images\approvedhamb.png" />
 	  <None Remove="Resources\Images\declined.png" />
 	  <None Remove="Resources\Raw\splash.svg" />
 	  <None Remove="Resources\Splash\thebesttrivia.png" />

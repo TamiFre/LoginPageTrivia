@@ -44,10 +44,12 @@ namespace LoginPage.ViewModels
             this.qService = qService;//הסרבי
             this.statusQService = statusService;
             Status = new ObservableCollection<StatusQ>();
+
             foreach(StatusQ s in statusQService.StatusQs)
             {
                 Status.Add(s);
             }
+
             Questions = new ObservableCollection<Q>();
             ShowAllQuestions = new Command(async () => await ShowQuestions());
             FilterCommand = new Command(ShowFilteredQuestions);
@@ -60,11 +62,12 @@ namespace LoginPage.ViewModels
            
             fullList = qService.GetUserQuestion(Player);
             Questions.Clear();
-            SelectedIndex = -1;
+          
             for (int i = 0; i < fullList.Count; i++)
             {
                 Questions.Add(fullList[i]);
             }
+            SelectedIndex = -1;
         }
 
         public void ShowFilteredQuestions()
@@ -81,14 +84,6 @@ namespace LoginPage.ViewModels
           
         }
         
-
-
-      
-
-
-
-
-
 
     }
 }

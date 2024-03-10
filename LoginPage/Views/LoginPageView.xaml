@@ -19,6 +19,7 @@
                 Grid.Row="1"
                 FontFamily="SuperOceanPersonalUse"
                 Placeholder="Password"
+                IsPassword="True"
                 Text="{Binding Password}" />
 
             <Grid
